@@ -9,7 +9,7 @@ namespace Playerok
         public override void Initialize()
         {
             base.Initialize();
-            var goPlayer = new GameObject("Player");
+            var goPlayer = new GameObject("Vasilia Popkin");
             player = goPlayer.AddComponent<Player>();
         }
     }

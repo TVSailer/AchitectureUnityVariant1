@@ -6,6 +6,7 @@ namespace Bank
     {
         private static BankInteractor _bankInteractor;
         public static event Action OnBankInitializedEvent;
+        public static bool IsInitialized { get; private set; }
 
         public static int Coins { 
             get {
@@ -14,7 +15,6 @@ namespace Bank
             }
         }
 
-    public static bool IsInitialized { get; private set; }
 
         public static void Initialize(BankInteractor bankInteractor)
         {

@@ -31,6 +31,7 @@ namespace Scenes.Scripts
             var config = sceneConfigMap[sceneName];
             return Coroutines.StartRoutine(LoadCurrentSceneRoutine(config));
         }
+
         private IEnumerator LoadCurrentSceneRoutine(SceneConfig sceneConfig)
         {
             isLoading = true;
@@ -40,6 +41,7 @@ namespace Scenes.Scripts
             isLoading = false;
             OnSceneLoadedEvent?.Invoke(scene);
         }
+
         public Coroutine LoadNewSceneAsync(string sceneName)
         {
             if (isLoading)
@@ -47,6 +49,7 @@ namespace Scenes.Scripts
             var config = sceneConfigMap[sceneName];
             return Coroutines.StartRoutine(LoadNewSceneRoutine(config));
         }
+
         private IEnumerator LoadNewSceneRoutine(SceneConfig sceneConfig)
         {
             isLoading = false;
@@ -57,6 +60,7 @@ namespace Scenes.Scripts
             isLoading = true;
             OnSceneLoadedEvent?.Invoke(scene);
         }
+
         private IEnumerator LoadSceneRoutine(SceneConfig sceneConfig)
         {
             var async = SceneManager.LoadSceneAsync(sceneConfig.sceneName);
@@ -67,6 +71,7 @@ namespace Scenes.Scripts
                 
             async.allowSceneActivation = true;
         }
+
         private IEnumerator InitializeSceneRotine(SceneConfig sceneConfig)
         {
             scene = new Scene(sceneConfig);
@@ -77,6 +82,7 @@ namespace Scenes.Scripts
         {
             return scene.GetRepository<T>();
         }
+
         public T GetInteractor<T>() where T : Interactor
         {
             return scene.GetInteractor<T>();
